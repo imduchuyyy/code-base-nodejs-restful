@@ -10,12 +10,21 @@ const compression = require('compression')
 const UserRoute = require('./routes/user')
 
 const { PORT } = require('./environments')
+const { mongoose } = require('./helper')
 
 // reduce size file
 app.use(compression())
 cors()
 
 app.use('/user', UserRoute)
+
+// connected mongo database
+mongoose.connection.on('error', () => {
+	console.log('❌  error occurred from the mongo database')
+})
+mongoose.connection.once('open', () =>
+	console.log('🌨  Connected successfully to mongo database')
+)
 
 http.listen(PORT, () => {
     console.log(

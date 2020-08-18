@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { MONGO_URL } = require('@environments')
+const { MONGO_URL } = require('../../environments')
 
 const connectionOptions = {
 	useNewUrlParser: true,
@@ -8,9 +8,7 @@ const connectionOptions = {
 
 mongoose.Promise = global.Promise
 
-mongoose.connect(MONGO_URL, connectionOptions, () => {
-    console.log('Data base connected')
-})
+mongoose.connect(MONGO_URL, connectionOptions)
 
 mongoose.set('debug', true)
 
