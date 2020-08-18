@@ -1,6 +1,6 @@
 const { sign, verify } = require('jsonwebtoken')
 
-const { PRIVATE_KEY } = require('@environments')
+const { PRIVATE_KEY } = require('../../environments')
 const { UserEntity } = require('../../models')
 
 /**

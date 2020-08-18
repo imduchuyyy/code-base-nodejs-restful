@@ -7,12 +7,15 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const swaggerUi = require('swagger-ui-express')
 const compression = require('compression')
+const UserRoute = require('./routes/user')
 
 const { PORT } = require('./environments')
 
 // reduce size file
 app.use(compression())
 cors()
+
+app.use('/user', UserRoute)
 
 http.listen(PORT, () => {
     console.log(

@@ -1,6 +1,6 @@
 const { hash, compare } = require('bcrypt')
 
-const { SALT } = require('@environments')
+const { SALT } = require('../../environments')
 
 /**
  * This function hash password using bcrypt
