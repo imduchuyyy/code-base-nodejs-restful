@@ -1,4 +1,3 @@
-require('module-alias/register')
 const express = require('express')
 const app = express()
 const http = require('http').createServer(app)
@@ -9,7 +8,7 @@ const bodyParser = require('body-parser')
 const swaggerUi = require('swagger-ui-express')
 const compression = require('compression')
 
-const { PORT } = require('@environments')
+const { PORT } = require('./environments')
 
 // reduce size file
 app.use(compression())
