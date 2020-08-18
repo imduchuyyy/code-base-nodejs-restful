@@ -1,6 +1,7 @@
 const { sign, verify } = require('jsonwebtoken')
 
 const { PRIVATE_KEY } = require('@environments')
+const { UserEntity } = require('../../models')
 
 /**
  * Returns token.
@@ -35,9 +36,8 @@ const generateToken = async (user) => {
  */
 
 const verifyToken = async (token) => {
-    let currentUser
     const { _id } = await verify(token, PRIVATE_KEY)
-    return _id
+    return await UserEntity.findOne({ _id })
 }
 
 module.exports = {
